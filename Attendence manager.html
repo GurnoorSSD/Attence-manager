@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Management System</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Attendance Management System</h2>
+
+<form onsubmit="addAttendance(); return false;">
+    Roll No:
+    <input type="number" id="roll" required><br><br>
+
+    Name:
+    <input type="text" id="name" required><br><br>
+
+    Status:
+    <select id="status">
+        <option>Present</option>
+        <option>Absent</option>
+    </select><br><br>
+
+    <button type="submit">Add Attendance</button>
+</form>
+
+<br><br>
+
+<h3>Attendance Records</h3>
+
+<table>
+    <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Status</th>
+    </tr>
+    <tbody id="tableBody">
+    </tbody>
+</table>
+
+<script>
+function addAttendance() {
+    var roll = document.getElementById("roll").value;
+    var name = document.getElementById("name").value;
+    var status = document.getElementById("status").value;
+
+    var table = document.getElementById("tableBody");
+    var row = table.insertRow();
+
+    row.insertCell(0).innerHTML = roll;
+    row.insertCell(1).innerHTML = name;
+    row.insertCell(2).innerHTML = status;
+
+    document.getElementById("roll").value = "";
+    document.getElementById("name").value = "";
+}
+</script>
+
+</body>
+</html>
